@@ -1,0 +1,22 @@
+<table style="margin-bottom:0" class="table table-hover table-bordered table-striped table-condensed" ng-show="totalItems">
+    <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in filteredTodos">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td><img src="{{item.avatar_url}}" width="60px"></td>
+            <td>${{item.price}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="addToCart(item.id)">Add to Cart</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul style="margin-top: 10px;" uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="numPerPage" ng-change="pageChanged()" ng-show="totalItems"></ul>
+<h3 ng-hide="totalItems">No members found</h3>

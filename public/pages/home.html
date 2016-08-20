@@ -1,0 +1,26 @@
+<div class="jumbotron text-center">
+    <h1>Developer Shop</h1>
+</div>
+<div class="container">
+    <div class="row mrg25B">
+        <div class="col-md-12">
+            <h3>GitHub member list</h3>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <member-list></member-list>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mrg25B">
+        <div class="col-md-12 table-responsive">
+            <h3>Cart</h3>
+            <user-cart></user-cart>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px" ng-show="cartItems.length">
+        <div class="col-md-3">
+            <button class="btn btn-primary" ng-click="checkOut()">Buy now</button>
+        </div>
+    </div>
+</div>

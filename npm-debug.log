@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'angular-touch@X.Y.Z' ]
+2 info using npm@3.10.5
+3 info using node@v4.4.7
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData angular-touch@X.Y.Z
+8 silly fetchNamedPackageData angular-touch
+9 silly mapToRegistry name angular-touch
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'angular-touch',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'angular-touch',
+12 silly mapToRegistry   name: 'angular-touch',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/angular-touch
+14 verbose request uri https://registry.npmjs.org/angular-touch
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 21:55:36
+17 verbose request id ffcfdd4b4d6bfe50
+18 http request GET https://registry.npmjs.org/angular-touch
+19 http 200 https://registry.npmjs.org/angular-touch
+20 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+20 verbose headers   etag: '"BFYWRC6F68FR0GG1MQTHJKWKP"',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'content-encoding': 'gzip',
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   'content-length': '9908',
+20 verbose headers   'accept-ranges': 'bytes',
+20 verbose headers   date: 'Sat, 20 Aug 2016 00:55:37 GMT',
+20 verbose headers   via: '1.1 varnish',
+20 verbose headers   age: '0',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'x-served-by': 'cache-iad2130-IAD',
+20 verbose headers   'x-cache': 'HIT',
+20 verbose headers   'x-cache-hits': '1',
+20 verbose headers   'x-timer': 'S1471654536.919349,VS0,VE99',
+20 verbose headers   vary: 'Accept-Encoding' }
+21 silly get cb [ 200,
+21 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+21 silly get     etag: '"BFYWRC6F68FR0GG1MQTHJKWKP"',
+21 silly get     'content-type': 'application/json',
+21 silly get     'content-encoding': 'gzip',
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     'content-length': '9908',
+21 silly get     'accept-ranges': 'bytes',
+21 silly get     date: 'Sat, 20 Aug 2016 00:55:37 GMT',
+21 silly get     via: '1.1 varnish',
+21 silly get     age: '0',
+21 silly get     connection: 'keep-alive',
+21 silly get     'x-served-by': 'cache-iad2130-IAD',
+21 silly get     'x-cache': 'HIT',
+21 silly get     'x-cache-hits': '1',
+21 silly get     'x-timer': 'S1471654536.919349,VS0,VE99',
+21 silly get     vary: 'Accept-Encoding' } ]
+22 verbose get saving angular-touch to C:\Users\junin\AppData\Roaming\npm-cache\registry.npmjs.org\angular-touch\.cache.json
+23 verbose correctMkdir C:\Users\junin\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+24 silly fetchPackageMetaData Error: No compatible version found: angular-touch@X.Y.Z
+24 silly fetchPackageMetaData Valid install targets:
+24 silly fetchPackageMetaData 1.5.8, 1.5.7, 1.5.6, 1.5.5, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.5.0-rc.2, 1.5.0-rc.1, 1.5.0-rc.0, 1.5.0-beta.2, 1.5.0-beta.0, 1.4.12, 1.4.11, 1.4.10, 1.4.9, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.4.0-rc.2, 1.4.0-rc.1, 1.4.0-rc.0, 1.4.0-beta.6, 1.4.0-beta.5, 1.4.0-beta.4, 1.4.0-beta.3, 1.4.0-beta.2, 1.4.0-beta.1, 1.4.0-beta.0, 1.3.20, 1.3.19, 1.3.18, 1.3.17, 1.3.16, 1.3.15, 1.3.14, 1.3.13, 1.3.12, 1.3.11, 1.3.10, 1.3.9, 1.3.8, 1.3.7, 1.3.6, 1.3.5, 1.3.4, 1.3.4-build.3587, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.3.0-rc.5, 1.2.30, 1.2.29, 1.2.28, 1.2.27
+24 silly fetchPackageMetaData
+24 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\lib\fetch-package-metadata.js:170:16)
+24 silly fetchPackageMetaData     at C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\node_modules\iferr\index.js:13:50
+24 silly fetchPackageMetaData     at C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\lib\utils\pulse-till-done.js:20:8
+24 silly fetchPackageMetaData     at saved (C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\lib\cache\caching-client.js:174:7)
+24 silly fetchPackageMetaData     at C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\node_modules\graceful-fs\polyfills.js:210:7
+24 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:82:15)
+24 silly fetchPackageMetaData  error for angular-touch@X.Y.Z [Error: No compatible version found: angular-touch@X.Y.Z
+24 silly fetchPackageMetaData Valid install targets:
+24 silly fetchPackageMetaData 1.5.8, 1.5.7, 1.5.6, 1.5.5, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.5.0-rc.2, 1.5.0-rc.1, 1.5.0-rc.0, 1.5.0-beta.2, 1.5.0-beta.0, 1.4.12, 1.4.11, 1.4.10, 1.4.9, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.4.0-rc.2, 1.4.0-rc.1, 1.4.0-rc.0, 1.4.0-beta.6, 1.4.0-beta.5, 1.4.0-beta.4, 1.4.0-beta.3, 1.4.0-beta.2, 1.4.0-beta.1, 1.4.0-beta.0, 1.3.20, 1.3.19, 1.3.18, 1.3.17, 1.3.16, 1.3.15, 1.3.14, 1.3.13, 1.3.12, 1.3.11, 1.3.10, 1.3.9, 1.3.8, 1.3.7, 1.3.6, 1.3.5, 1.3.4, 1.3.4-build.3587, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.3.0-rc.5, 1.2.30, 1.2.29, 1.2.28, 1.2.27
+24 silly fetchPackageMetaData ]
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: No compatible version found: angular-touch@X.Y.Z
+30 verbose stack Valid install targets:
+30 verbose stack 1.5.8, 1.5.7, 1.5.6, 1.5.5, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.5.0-rc.2, 1.5.0-rc.1, 1.5.0-rc.0, 1.5.0-beta.2, 1.5.0-beta.0, 1.4.12, 1.4.11, 1.4.10, 1.4.9, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.4.0-rc.2, 1.4.0-rc.1, 1.4.0-rc.0, 1.4.0-beta.6, 1.4.0-beta.5, 1.4.0-beta.4, 1.4.0-beta.3, 1.4.0-beta.2, 1.4.0-beta.1, 1.4.0-beta.0, 1.3.20, 1.3.19, 1.3.18, 1.3.17, 1.3.16, 1.3.15, 1.3.14, 1.3.13, 1.3.12, 1.3.11, 1.3.10, 1.3.9, 1.3.8, 1.3.7, 1.3.6, 1.3.5, 1.3.4, 1.3.4-build.3587, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.3.0-rc.5, 1.2.30, 1.2.29, 1.2.28, 1.2.27
+30 verbose stack
+30 verbose stack     at pickVersionFromRegistryDocument (C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\lib\fetch-package-metadata.js:170:16)
+30 verbose stack     at C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\node_modules\iferr\index.js:13:50
+30 verbose stack     at C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\lib\utils\pulse-till-done.js:20:8
+30 verbose stack     at saved (C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\lib\cache\caching-client.js:174:7)
+30 verbose stack     at C:\Users\junin\AppData\Roaming\nvm\v4.4.7\node_modules\npm\node_modules\graceful-fs\polyfills.js:210:7
+30 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+31 verbose cwd C:\WORK_GIT\Processos_Seletivos\developer-shop
+32 error Windows_NT 10.0.14393
+33 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "angular-touch@X.Y.Z"
+34 error node v4.4.7
+35 error npm  v3.10.5
+36 error No compatible version found: angular-touch@X.Y.Z
+36 error Valid install targets:
+36 error 1.5.8, 1.5.7, 1.5.6, 1.5.5, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.5.0-rc.2, 1.5.0-rc.1, 1.5.0-rc.0, 1.5.0-beta.2, 1.5.0-beta.0, 1.4.12, 1.4.11, 1.4.10, 1.4.9, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.4.0-rc.2, 1.4.0-rc.1, 1.4.0-rc.0, 1.4.0-beta.6, 1.4.0-beta.5, 1.4.0-beta.4, 1.4.0-beta.3, 1.4.0-beta.2, 1.4.0-beta.1, 1.4.0-beta.0, 1.3.20, 1.3.19, 1.3.18, 1.3.17, 1.3.16, 1.3.15, 1.3.14, 1.3.13, 1.3.12, 1.3.11, 1.3.10, 1.3.9, 1.3.8, 1.3.7, 1.3.6, 1.3.5, 1.3.4, 1.3.4-build.3587, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.3.0-rc.5, 1.2.30, 1.2.29, 1.2.28, 1.2.27
+37 error If you need help, you may report this error at:
+37 error     <https://github.com/npm/npm/issues>
+38 verbose exit [ 1, true ]
