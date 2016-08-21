@@ -1,8 +1,6 @@
 define(function () {
-    //Instanciando a nova aplicação
     var app = angular.module('developerShop', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
-    //Configuração da nossa aplicação
     app.config(['$routeProvider', '$controllerProvider', '$provide', '$locationProvider', function ($routeProvider, $controllerProvider, $provide, $locationProvider) {
 
         app.register = {
@@ -32,12 +30,10 @@ define(function () {
         $locationProvider.html5Mode(true);
     }]);
 
-    //bootstrap da nossa aplicação
     angular.element(document).ready(function () {
         angular.bootstrap(document, ['developerShop']);
     });
 
-    //Controller da Home page
     app.controller('homeController', ['$scope', '$location', '$rootScope', '$http', 'cartItems', function($scope, $location, $rootScope, $http, cartItems) {
         $scope.currentPage = '/';
         $scope.cartItems = cartItems;
@@ -107,40 +103,48 @@ define(function () {
         });
     });
 
-    app.controller('memberListController', function($scope, $location, $rootScope, $http) {
-        //$scope.currentPage = '/';
-        $scope.filteredTodos = []
+    app.controller('memberListController', function($scope, $location, $rootScope, $http, $q) {
+        $scope.currentPage = 0
+        ,$scope.filteredTodos = []
         ,$scope.memberList = []
-        ,$scope.currentPage = 0
         ,$scope.numPerPage = 4
-        ,$scope.maxSize = 999
         ,$scope.totalItems = 0;
 
         $scope.getMemberList = function() {
+
             $http.get('https://api.github.com/orgs/vtex/members?client_id=008eef314871fa1f74e8&client_secret=5eda828c3edea0324a840da4fbf7eb15a2f93806')
-                .then(function(res){
-                    $scope.totalItems = res.data.length;
+                .success(function(res){
 
-                    for(var i = 0; i < res.data.length; i++) {
-                        var name = $scope.getMemberDetails(res.data[i].login);
-                        name.success(function(data, status, headers, config){
-                            var memberPrice = $scope.calcMemberPrice(data.followers, data.public_repos);
+                    var promises = [];
 
-                            $scope.memberList.push({"id": data.id
-                                                    ,"login": data.login
-                                                    ,"name": data.name
-                                                    ,"company": data.company
-                                                    ,"blog": data.blog
-                                                    ,"location": data.location
-                                                    ,"email": data.email
-                                                    ,"avatar_url": data.avatar_url
-                                                    ,"price": memberPrice
-                                                    ,"hours": 1});
-                        })
-                    }
+                    $scope.totalItems = res.length;
 
-                    $scope.currentPage = 1;
-                });
+                    angular.forEach(res, function(member) {
+
+
+                        //getAllInvoices returns a promise...
+                        promises.push(
+                            $scope.getMemberDetails(member.login).success(function(data){
+
+                                var memberPrice = $scope.calcMemberPrice(data.followers, data.public_repos);
+                                $scope.memberList.push({"id": data.id
+                                    ,"login": data.login
+                                    ,"name": data.name
+                                    ,"company": data.company
+                                    ,"blog": data.blog
+                                    ,"location": data.location
+                                    ,"email": data.email
+                                    ,"avatar_url": data.avatar_url
+                                    ,"price": memberPrice
+                                    ,"hours": 1});
+                            })
+                        );
+                    })
+
+                    $q.all(promises).then(function(){
+                        $scope.currentPage = 1;
+                    });
+            });
         };
 
         $scope.addToCart = function(memberId){
@@ -172,8 +176,11 @@ define(function () {
         };
 
         $scope.$watch('currentPage', function() {
-            var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
-            $scope.filteredTodos = $scope.memberList.slice(begin, end);
+
+            if($scope.currentPage > 0) {
+                var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
+                $scope.filteredTodos = $scope.memberList.slice(begin, end);
+            }
         });
     });
 
