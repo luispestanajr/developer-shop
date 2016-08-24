@@ -6,8 +6,7 @@ Projeto de Avaliação para o processo seletivo na empresa VTEX
 
 ## Instalação
 
-1. Instalar o MongoDB
-2. Na raiz do projeto, rodar o comando "npm install"
+1. Na raiz do projeto, rodar o comando "npm install"
 
 ## Utilização
 
