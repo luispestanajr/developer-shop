@@ -2,11 +2,14 @@
 var chai = require('chai');
 var expect = chai.expect;
 var assert = chai.assert;
+var chaiHttp = require('chai-http');
+var should = chai.should();
 
 var dbConnection = require('../api/lib/dbConnection');
 var devShop = require('../api/developer-shop');
 var server = require('../../server');
-//var request = require('supertest');
+
+chai.use(chaiHttp);
 
 describe('Developer Shop', function() {
 
@@ -45,8 +48,32 @@ describe('Developer Shop', function() {
         });
     });
 
-    it('Verificar a resposta HTTP para o post do novo pedido', function(done){
+    it('Verificar a resposta Http para a home do sistema', (done) => {
 
-        done('erro');
+        chai.request(server)
+            .get('/')
+            .end((err, res) => {
+                res.should.have.status(200);
+                done();
+            });
+    });
+
+    it('Verificar a resposta Http para o post de novo pedido', function(done){
+
+        var novoPedido = {
+                            "dataCriacao": new Date(),
+                            "codigoCupom": "SHIPIT",
+                            "produtosPedido": [{ "idDesenvolvedor": "284515", "valPreco": "92.7",  "qtdHoras": "175" }
+                                                ,{ "idDesenvolvedor": "875888",  "valPreco": "2.4",  "qtdHoras": "55" }]
+                        };
+
+        chai.request(server)
+            .post('/pedido')
+            .send(novoPedido)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.resposta.should.equal("ok");
+                done();
+            });
     });
 });

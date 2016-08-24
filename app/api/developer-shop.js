@@ -42,7 +42,7 @@ developerShop.prototype.criarPedido = function(dataCriacao, codigoCupom, produto
             })
             .then(function() {
                 dbConnection.close(); //Fechando conexão
-                resolve('pedido criado com sucesso'); //Retorno de pedido criado com sucesso
+                resolve('ok'); //Retorno de pedido criado com sucesso
             });
     });
 }

@@ -7,10 +7,10 @@ gulp.task('default', ['browser-sync'], function () {
 
 gulp.task('browser-sync', ['nodemon'], function() {
     browserSync.init(null, {
-        proxy: "http://localhost:3000",
+        proxy: "http://localhost:5000",
         files: ["public/**/*.*"],
         browser: "firefox",
-        port: 3000,
+        port: 5000,
     });
 });
 gulp.task('nodemon', function (cb) {

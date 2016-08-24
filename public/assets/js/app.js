@@ -27,6 +27,10 @@ define(function () {
             .when('/', {
                 templateUrl: '../pages/home.html',
                 controller: 'homeController'
+            })
+            .when('/confirmation', {
+                templateUrl: '../pages/confirmation.html',
+                controller: 'confirmationController'
             });
 
         $locationProvider.html5Mode(true);
@@ -45,8 +49,23 @@ define(function () {
         //Método responsável por finalizar o pedido e levar o usuário para a tela de feedback de criação do pedido
         $scope.checkOut = function(){
 
+            var objPedido = {"dataCriacao": new Date(), "codigoCupom": $scope.cupomCode, "produtosPedido": []};
+
+            angular.forEach($scope.cartItems, function(value, key) {
+
+                objPedido.produtosPedido.push({"idDesenvolvedor": value.id, "qtdHoras": value.hours, "valPreco": value.price});
+            });
+
+            $http.post('/pedido', JSON.stringify(objPedido))
+                .then(function(res){
+
+                    $location.path("/confirmation");
+                });
         }
     }]);
+
+    app.controller('confirmationController', function($scope, $location, $rootScope, $http) {
+    });
 
     //Controller de Carrinho de Compras
     app.controller('cartController', function($scope, $location, $rootScope, $http) {

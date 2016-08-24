@@ -1,27 +1,36 @@
 var http = require('http');
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
 var router = express.Router();
+var developerShop = require('./app/api/developer-shop');
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
-
-app.use(function(req, res, next){
-	//Full access to all, it is very bad idea. Use this only for development
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+app.use((req, res, next) => {
 
     next();
 });
 
-app.get('/', function(req, res) {
-    //res.sendfile('public/index.html');
+app.get('/', (req, res) => {
+
     res.render('public/index')
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+app.post('/pedido', (req, res) => {
+
+    developerShop.criarPedido(req.body.dataCriacao, req.body.codigoCupom, req.body.produtosPedido)
+        .then((data) => {
+            res.json({ "resposta": "ok" });
+       })
+    .catch((err) => {
+        res.json({ "resposta": "erro" });
+    });
 });
+
+app.listen(app.get('port'), () => {});
+
+module.exports = app;
