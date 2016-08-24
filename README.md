@@ -1,6 +1,4 @@
-<snippet>
-  <content><![CDATA[
-# ${1:Developer Shop}
+# Developer Shop}
 
 Projeto de Avaliação para o processo seletivo na empresa VTEX
 
@@ -16,6 +14,3 @@ Na raiz do projeto, utilizar o comando "gulp"
 ## Autor
 
 Luis Antônio Pestana Junior
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
