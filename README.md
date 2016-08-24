@@ -1,4 +1,4 @@
-# Developer Shop}
+# Developer Shop
 
 Projeto de Avaliação para o processo seletivo na empresa VTEX
 
