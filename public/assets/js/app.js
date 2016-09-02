@@ -10,19 +10,6 @@ define(function () {
             factory: $provide.factory
         };
 
-        function resolveController(names) {
-            return {
-                load: ['$q', '$rootScope', function ($q, $rootScope) {
-                    var defer = $q.defer();
-                    require(names, function () {
-                        defer.resolve();
-                        $rootScope.$apply();
-                    });
-                    return defer.promise;
-                }]
-            }
-        }
-
         $routeProvider
             .when('/', {
                 templateUrl: '../pages/home.html',
