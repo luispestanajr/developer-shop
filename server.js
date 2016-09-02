@@ -1,12 +1,11 @@
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
-
 var app = express();
 var router = express.Router();
 var developerShop = require('./app/api/developer-shop');
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 2001));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 

@@ -1,40 +1,51 @@
-<div class="table-responsive">
-    <table class="table table-hover table-bordered table-striped table-condensed" ng-show="cartItems.length">
-        <thead>
-        <th>#</th>
-        <th>Login</th>
-        <th>Company</th>
-        <th>Blog</th>
-        <th>Location</th>
-        <th>E-mail</th>
-        <th>Price (hour)</th>
-        <th>Hours</th>
-        <th>Actions</th>
-        </thead>
-        <tbody>
-        <tr ng-repeat="item in cartItems">
-            <td>{{item.id}}</td>
-            <td>{{item.login}}</td>
-            <td>{{item.company}}</td>
-            <td><a href="{{item.blog}}" target="_blank">{{item.blog}}</a></td>
-            <td>{{item.location}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.price}}</td>
-            <td><input type="number" class="form-control" value="1" ng-model="item.hours"></td>
-            <td>
-                <button class="btn btn-danger" ng-click="removeItem(item.id)">Remove</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<p ng-show="cartItems.length"><strong>Total: ${{getTotal()}}</strong></p>
-<div class="well bg-warning" ng-hide="cartItems.length"><h3>Your cart is empty!</h3></div>
-<div class="row" ng-show="cartItems.length">
-    <div class="col-xs-12">
-        <h3>Do you have a cupom code? </h3>
-        <input type="text" ng-model="cupomCode" class="form-control" ng-change="applyCupomCode()">
-
-        <h2 ng-show="savings">You saved <stronger class="text-success">${{savings}}</stronger></h2>
+<form name="cart">
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped table-condensed" ng-show="cartItems.length">
+            <thead>
+            <th>#</th>
+            <th>Login</th>
+            <th>Company</th>
+            <th>Blog</th>
+            <th>Location</th>
+            <th>E-mail</th>
+            <th>Price (hour)</th>
+            <th>Hours</th>
+            <th>Actions</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in cartItems">
+                <td>{{item.id}}</td>
+                <td>{{item.login}}</td>
+                <td>{{item.company}}</td>
+                <td><a href="{{item.blog}}" target="_blank">{{item.blog}}</a></td>
+                <td>{{item.location}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <div class="form=group" ng-class="{ 'has-error' : cart['hours_' + $index].$invalid && !cart['hours_' + $index].$pristine }">
+                        <input type="number" class="form-control"
+                               name="hours_{{$index}}"
+                               value="1"
+                               ng-model="item.hours"
+                               min="1" max="999"
+                               required />
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-danger" ng-click="removeItem(item.id)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
+    <p ng-show="cartItems.length"><strong>Total: ${{getTotal()}}</strong></p>
+    <div class="well bg-warning" ng-hide="cartItems.length"><h3>Your cart is empty!</h3></div>
+    <div class="row" ng-show="cartItems.length">
+        <div class="col-xs-12">
+            <h3>Do you have a cupom code? </h3>
+            <input type="text" ng-model="cupomCode" class="form-control" ng-change="applyCupomCode()">
+
+            <h2 ng-show="savings">You saved <stronger class="text-success">${{savings}}</stronger></h2>
+        </div>
+    </div>
+</form>

@@ -89,7 +89,8 @@ define(function () {
 
             for(var i = 0; i < $scope.cartItems.length; i++)
             {
-                total += $scope.cartItems[i].price * $scope.cartItems[i].hours;
+                if(!isNaN($scope.cartItems[i].hours))
+                    total += $scope.cartItems[i].price * $scope.cartItems[i].hours;
             }
 
             return Math.round((total - $scope.savings) * 100) / 100; //Arredondando o valor com 2 casas decimais
